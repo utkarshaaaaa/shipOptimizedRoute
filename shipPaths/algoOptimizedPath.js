@@ -1,133 +1,12 @@
-// class Node {
-//     constructor(name) {
-//       this.name = name;
-//       this.neighbors = [];
-//     }
-  
-//     addNeighbor(node, cost) {
-//       this.neighbors.push({ node, cost });
-//     }
-//   }
-  
-//   class Graph {
-//     constructor() {
-//       this.nodes = new Map();
-//     }
-  
-//     addNode(name) {
-//       const node = new Node(name);
-//       this.nodes.set(name, node);
-//     }
-  
-//     addEdge(node1Name, node2Name, cost) {
-//       const node1 = this.nodes.get(node1Name);
-//       const node2 = this.nodes.get(node2Name);
-//       node1.addNeighbor(node2, cost);
-//       node2.addNeighbor(node1, cost);
-//     }
-  
-//     getNode(name) {
-//       return this.nodes.get(name);
-//     }
-//   }
-  
-//   class AStar {
-//     constructor(graph) {
-//       this.graph = graph;
-//     }
-  
-//     heuristic(node1, node2) {
-//       return Math.abs(node1.name.charCodeAt(0) - node2.name.charCodeAt(0));
-//     }
-  
-//     findPath(startName, endName) {
-//       const startNode = this.graph.getNode(startName);
-//       const endNode = this.graph.getNode(endName);
-  
-//       const openSet = new Set([startNode]);
-//       const cameFrom = new Map();
-  
-//       const gScore = new Map();
-//       const fScore = new Map();
-  
-//       this.graph.nodes.forEach((_, nodeName) => {
-//         gScore.set(nodeName, Infinity);
-//         fScore.set(nodeName, Infinity);
-//       });
-  
-//       gScore.set(startNode.name, 0);
-//       fScore.set(startNode.name, this.heuristic(startNode, endNode));
-  
-//       while (openSet.size > 0) {
-//         let current = [...openSet].reduce((a, b) =>
-//           fScore.get(a.name) < fScore.get(b.name) ? a : b
-//         );
-  
-//         if (current === endNode) {
-//           return this.reconstructPath(cameFrom, current);
-//         }
-  
-//         openSet.delete(current);
-  
-//         for (let { node: neighbor, cost } of current.neighbors) {
-//           let tentative_gScore = gScore.get(current.name) + cost;
-  
-//           if (tentative_gScore < gScore.get(neighbor.name)) {
-//             cameFrom.set(neighbor.name, current);
-//             gScore.set(neighbor.name, tentative_gScore);
-//             fScore.set(
-//               neighbor.name,
-//               tentative_gScore + this.heuristic(neighbor, endNode)
-//             );
-//             if (!openSet.has(neighbor)) {
-//               openSet.add(neighbor);
-//             }
-//           }
-//         }
-//       }
-  
-//       return "Path not found!";
-//     }
-  
-//     reconstructPath(cameFrom, current) {
-//       const totalPath = [current.name];
-//       while (cameFrom.has(current.name)) {
-//         current = cameFrom.get(current.name);
-//         totalPath.unshift(current.name);
-//       }
-//       return totalPath;
-//     }
-//   }
-  
-//   const graph = new Graph();
-//   ["A", "B", "C", "D", "E"].forEach((node) => graph.addNode(node));
-  
-//   graph.addEdge("A", "B", 800);
-//   graph.addEdge("A", "C", 200);
-//   graph.addEdge("B", "D", 150);
-//   graph.addEdge("C", "D", 100);
-//   graph.addEdge("D", "E", 507);
-//   graph.addEdge("B", "E", 300);
-  
-//   const aStar = new AStar(graph);
-//   let initialPath = aStar.findPath("A", "E");
-//   console.log("Initial Path:", initialPath);
-  
-//   graph.addEdge("A", "B", 300);
-//   graph.addEdge("B", "D", 180);
-  
-//   let updatedPath = aStar.findPath("A", "E");
-//   console.log("Updated Path:", updatedPath);
-  
-
+// 
 class Node {
   constructor(name) {
     this.name = name;
     this.neighbors = [];
   }
 
-  addNeighbor(node, distance, fuelEfficiency) {
-    this.neighbors.push({ node, distance, fuelEfficiency });
+  addNeighbor(node, distance, fuelEfficiency, weather, speed) {
+    this.neighbors.push({ node, distance, fuelEfficiency, weather, speed });
   }
 }
 
@@ -141,11 +20,11 @@ class Graph {
     this.nodes.set(name, node);
   }
 
-  addEdge(node1Name, node2Name, distance, fuelEfficiency) {
+  addEdge(node1Name, node2Name, distance, fuelEfficiency, weather, speed) {
     const node1 = this.nodes.get(node1Name);
     const node2 = this.nodes.get(node2Name);
-    node1.addNeighbor(node2, distance, fuelEfficiency);
-    node2.addNeighbor(node1, distance, fuelEfficiency); 
+    node1.addNeighbor(node2, distance, fuelEfficiency, weather, speed);
+    node2.addNeighbor(node1, distance, fuelEfficiency, weather, speed); 
   }
 
   getNode(name) {
@@ -158,9 +37,19 @@ class AStar {
     this.graph = graph;
   }
 
-  heuristic(node1, node2) {
-    // Heuristic based on node names (you can use something more realistic)
-    return Math.abs(node1.name.charCodeAt(0) - node2.name.charCodeAt(0));
+  heuristic(node1, node2, weather) {
+    const baseHeuristic = Math.abs(node1.name.charCodeAt(0) - node2.name.charCodeAt(0));
+
+    switch (weather) {
+      case "good":
+        return baseHeuristic * 0.8;
+      case "moderate":
+        return baseHeuristic;
+      case "bad":
+        return baseHeuristic * 3.5;
+      default:
+        return baseHeuristic;
+    }
   }
 
   findPath(startName, endName, totalFuel) {
@@ -173,16 +62,19 @@ class AStar {
     const gScore = new Map(); // distance
     const fuelScore = new Map(); // fuel used
     const fScore = new Map(); // A* score
+    const timeScore = new Map(); // time 
 
     this.graph.nodes.forEach((_, nodeName) => {
       gScore.set(nodeName, Infinity);
       fuelScore.set(nodeName, Infinity);
       fScore.set(nodeName, Infinity);
+      timeScore.set(nodeName, Infinity);
     });
 
     gScore.set(startNode.name, 0);
     fuelScore.set(startNode.name, 0); 
-    fScore.set(startNode.name, this.heuristic(startNode, endNode));
+    timeScore.set(startNode.name, 0); // start with 0 hours
+    fScore.set(startNode.name, this.heuristic(startNode, endNode, "moderate"));
 
     while (openSet.size > 0) {
       let current = [...openSet].reduce((a, b) =>
@@ -190,27 +82,44 @@ class AStar {
       );
 
       if (current === endNode) {
-        return this.reconstructPath(cameFrom, current);
+        return {
+          path: this.reconstructPath(cameFrom, current),
+          totalTime: timeScore.get(current.name)
+        };
       }
 
       openSet.delete(current);
 
-      for (let { node: neighbor, distance, fuelEfficiency } of current.neighbors) {
+      for (let { node: neighbor, distance, fuelEfficiency, weather, speed } of current.neighbors) {
         let tentative_gScore = gScore.get(current.name) + distance;
-        let fuelUsed = gScore.get(current.name) / fuelEfficiency;
+        let fuelUsed = distance / fuelEfficiency;
 
         if (fuelUsed > totalFuel) {
-      
-          continue;
+          continue; 
+        }
+
+        let initialTime = distance / speed; 
+        switch (weather) {
+          case "good":
+            tentative_gScore *= 0.8;
+            initialTime *= 0.8;
+            break;
+          case "bad":
+            tentative_gScore *= 3.5;
+            initialTime *= 1.5; 
+            break;
+          case "moderate":
+            break;
         }
 
         if (tentative_gScore < gScore.get(neighbor.name)) {
           cameFrom.set(neighbor.name, current);
           gScore.set(neighbor.name, tentative_gScore);
           fuelScore.set(neighbor.name, fuelUsed);
+          timeScore.set(neighbor.name, timeScore.get(current.name) + initialTime); // Add to total time
           fScore.set(
             neighbor.name,
-            tentative_gScore + this.heuristic(neighbor, endNode)
+            tentative_gScore + this.heuristic(neighbor, endNode, weather)
           );
           if (!openSet.has(neighbor)) {
             openSet.add(neighbor);
@@ -231,29 +140,30 @@ class AStar {
     return totalPath;
   }
 }
-
+//Static Graph of the node routes
 const graph = new Graph();
 ['A', 'B', 'C', 'D', 'E'].forEach(node => graph.addNode(node));
 
 
-graph.addEdge('A', 'B', 800, 15); // 800km, 15km/liter fuel efficiency
-graph.addEdge('A', 'C', 200, 18);
-graph.addEdge('B', 'D', 150, 10);
-graph.addEdge('C', 'D', 100, 20);
-graph.addEdge('D', 'E', 507, 12);
-graph.addEdge('B', 'E', 300, 14);
+graph.addEdge('A', 'B', 800, 15, "bad", 10);  // 800 km, 15 km/l fuel, good weather, Average speed = 50 km/h
+graph.addEdge('A', 'C', 200, 18, "moderate", 60);
+graph.addEdge('B', 'D', 150, 10, "bad", 40);
+graph.addEdge('C', 'D', 100, 20, "good", 55);
+graph.addEdge('D', 'E', 507, 12, "moderate", 50);
+graph.addEdge('B', 'E', 300, 14, "bad", 45);
 
 const aStar = new AStar(graph);
 
-// User input for total available fuel
-//entered by user
-let totalFuel = 70; 
+let totalFuel = 20; 
 
-let initialPath = aStar.findPath('A', 'E', totalFuel);
-console.log("Initial Path considering fuel:", initialPath);
-
-graph.addEdge('A', 'B', 300, 15); 
+// Find the path with fuel, speed, and weather conditions
+let { path: initialPath, totalTime } = aStar.findPath('A', 'C', totalFuel);
+console.log("Initial Path considering fuel, speed, and weather:", initialPath);
+console.log("Total Estimated Time in hours:", totalTime);
 
 
-let updatedPath = aStar.findPath('A', 'E', totalFuel);
-console.log("Updated Path considering fuel:", updatedPath);
+graph.addEdge('A', 'E', 200, 12, "good", 20);
+
+let { path: updatedPath, totalTime: updatedTime } = aStar.findPath('A', 'D', totalFuel);
+console.log("Updated Path considering fuel, speed, and weather:", updatedPath);
+console.log("Updated Total Estimated Time in hours:", updatedTime);
