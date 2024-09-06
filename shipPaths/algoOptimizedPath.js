@@ -73,7 +73,7 @@ class AStar {
 
     gScore.set(startNode.name, 0);
     fuelScore.set(startNode.name, 0); 
-    timeScore.set(startNode.name, 0); // start with 0 hours
+    timeScore.set(startNode.name, 0);
     fScore.set(startNode.name, this.heuristic(startNode, endNode, "moderate"));
 
     while (openSet.size > 0) {
@@ -156,7 +156,7 @@ const aStar = new AStar(graph);
 
 let totalFuel = 20; 
 
-// Find the path with fuel, speed, and weather conditions
+// find the path with fuel, speed, and weather conditions
 let { path: initialPath, totalTime } = aStar.findPath('B', 'D', totalFuel);
 console.log("Initial Path considering fuel, speed, and weather:", initialPath);
 console.log("Total Estimated Time in hours:", totalTime);
