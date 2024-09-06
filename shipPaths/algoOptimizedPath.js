@@ -1,4 +1,4 @@
-// 
+
 class Node {
   constructor(name) {
     this.name = name;
@@ -140,7 +140,7 @@ class AStar {
     return totalPath;
   }
 }
-//Static Graph of the node routes
+
 const graph = new Graph();
 ['A', 'B', 'C', 'D', 'E'].forEach(node => graph.addNode(node));
 
