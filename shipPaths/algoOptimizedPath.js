@@ -159,11 +159,11 @@ let totalFuel = 20;
 // find the path with fuel, speed, and weather conditions
 let { path: initialPath, totalTime } = aStar.findPath('B', 'D', totalFuel);
 console.log("Initial Path considering fuel, speed, and weather:", initialPath);
-console.log("Total Estimated Time in hours:", totalTime);
+console.log("Total Estimated Time in hours:",  Math.floor(totalTime));
 
 
 graph.addEdge('B', 'A', 200, 12, "good", 20);
 
 let { path: updatedPath, totalTime: updatedTime } = aStar.findPath('B', 'D', totalFuel);
 console.log("Updated Path considering fuel, speed, and weather:", updatedPath);
-console.log("Updated Total Estimated Time of Arraival in hours:", updatedTime);
+console.log("Updated Total Estimated Time of Arraival in hours:", Math.floor(updatedTime));
