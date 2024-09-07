@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ship Routes</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+   
+    <link href="img/favicon.ico" rel="icon">
+
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+   
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top p-0">
+        <a href="index.html" class="navbar-brand bg-primary d-flex align-items-center px-4 px-lg-5">
+            <h2 class="mb-2 text-white">NaviTrack</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+               
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="price.html" class="dropdown-item">Pricing Plan</a>
+                        <a href="feature.html" class="dropdown-item">Features</a>
+                        <a href="quote.html" class="dropdown-item">Free Quote</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                       
+                    </div>
+                    
+                </div>
+                
+         
+            </div>
+            <h4 class="m-0 pe-lg-5 d-none d-lg-block"><i class="fa fa-headphones text-primary me-3"></i></h4>
+           
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0 pb-5">
+        <div class="owl-carousel header-carousel position-relative mb-5">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">For Safe And Optimized Route</h5>
+                                <h1 class="display-3 text-white animated slideInDown mb-4">Quick  <span class="text-primary">Logistics</span> Solution</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Provides Best and optimal path for your ship journey.</p>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="https://img.freepik.com/premium-photo/big-size-container-ship-full-speed-sailing-deep-sea_44353-3062.jpg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">Transport & Logistics Solution</h5>
+                                <h1 class="display-3 text-white animated slideInDown mb-4">r <span class="text-primary">Transport</span> Solution</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid overflow-hidden py-5 px-lg-0">
+        <div class="container about py-5 px-lg-0">
+            <div class="row g-5 mx-lg-0">
+                <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img/about.jpg" style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="text-secondary text-uppercase mb-3">About Us</h6>
+                    <h1 class="mb-5">Quick Transport and Logistics Solutions</h1>
+                    <p class="mb-5">Navigating the complicated web of global supply chains requires precision and efficiency. At NaviTrack, we're not just moving goods, we're optimizing the entire journey. From seamless warehousing and distribution to cutting-edge transportation solutions.</p>
+                    <div class="row g-4 mb-5">
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                            <i class="fa fa-globe fa-3x text-primary mb-3"></i>
+                            <h5>Global Coverage</h5>
+                            <p class="m-0">Real-time weather monitoring for ocean conditions (storms, wind speeds, tides) using sources like NOAA (National Oceanic and Atmospheric Administration) and Metocean data.
+                              </p></br><h5>Ships</h5> consume different amounts of fuel depending on speed, sea conditions, and weather. Using fuel efficiency models along with machine learning can determine optimal speeds and routes to reduce fuel consumption.
+                            </p>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+                            <i class="fa fa-shipping-fast fa-3x text-primary mb-3"></i>
+                            <h5>Fast Delivery</h5>
+                            <p class="m-0">To ensure fast delivery for optimized ship routes on a global scale, several strategies can be employed in conjunction with the use of algorithms like A* search, machine learning, and real-time data integration. The focus is on minimizing travel time while balancing other factors like safety, fuel efficiency, and compliance with environmental regulations.</p>
+                        </div>
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-xxl py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-secondary text-uppercase mb-3">Some Facts</h6>
+                 
+                    <p class="mb-5"><h3>Safety Issues:</h3> Traditional routing methods often overlook navigational safety risks like collisions and
+                        hazardous areas, putting vessels in danger.</p>
+                       <h3> Changing Surroundings:</h3> Ships navigate through dynamic conditions (weather, currents, winds), and
+current routing algorithms struggle to adapt instantly, resulting in inefficient routes.
+<h3>Fuel Optimization & Speed Adjustments:</h3>
+ Fuel optimization not only reduces environmental impact but also improves delivery time by allowing ships to adjust speed for favorable conditions.
+
+
+                    <div class="d-flex align-items-center">
+                      
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-sm-6">
+                            <div class="bg-primary p-4 mb-4 wow fadeIn" data-wow-delay="0.3s">
+                                <i class="fa fa-users fa-2x text-white mb-3"></i>
+                                <h2 class="text-white mb-2" data-toggle="counter-up">165</h2>
+                                <p class="text-white mb-0">Naval </p>
+                            </div>
+                            <div class="bg-secondary p-4 wow fadeIn" data-wow-delay="0.5s">
+                                <i class="fa fa-ship fa-2x text-white mb-3"></i>
+                                <h2 class="text-white mb-2" data-toggle="counter-up">1234</h2>
+                                <p class="text-white mb-0">Complete Shipments</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="bg-success p-4 wow fadeIn" data-wow-delay="0.7s">
+                                <i class="fa fa-star fa-2x text-white mb-3"></i>
+                                <h2 class="text-white mb-2" data-toggle="counter-up">4702</h2>
+                                <p class="text-white mb-0">Total Ports</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fact End -->
+
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container py-5">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="text-secondary text-uppercase">Services</h6>
+                <h1 class="mb-5">Explore Services</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="img/service-2.jpg" alt="">
+                        </div>
+                        <h4 class="mb-3">Goods and Luggages Transport</h4>
+                        <p>Optimizing goods and luggage transport via shipping routes involves using advanced algorithms, machine learning, real-time data, and intelligent decision-making systems.</p>
+                        <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="https://img.freepik.com/free-photo/ai-generated-boat-picture_23-2150648049.jpg" alt="">
+                        </div>
+                        <h4 class="mb-3">Naval and Marine Routes</h4>
+                        <p>Naval and marine routes are essential pathways for global trade, defense, and transportation, connecting various regions across the world’s oceans. These routes are carefully mapped to ensure the safe passage of military and commercial vessels, considering factors like geography, weather conditions, maritime laws, and geopolitical boundaries.</p>
+                        <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="https://static.tildacdn.net/tild3732-6163-4436-b733-333661373436/FOS_banner.png" alt="">
+                        </div>
+                        <h4 class="mb-3">Fuel Optimization</h4>
+                        <p>Fuel optimization is a critical aspect of modern transportation, especially in industries like shipping and aviation, where fuel costs represent a significant portion of operating expenses. By employing fuel optimization techniques, companies can minimize fuel consumption, reduce operational costs, and lower environmental impact. This process involves using advanced algorithms, real-time data, and predictive analytics to determine the most efficient routes, speeds, and fuel management strategies.</p>
+                        <a class="btn-slide mt-2" href=""><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                    </div>
+                </div>
+               
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Feature Start -->
+    <div class="container-fluid overflow-hidden py-5 px-lg-0">
+        <div class="container feature py-5 px-lg-0">
+            <div class="row g-5 mx-lg-0">
+                <div class="col-lg-6 feature-text wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-secondary text-uppercase mb-3">Our Features</h6>
+                    <h1 class="mb-5"><h3>Economic Impacts:</h3>
+                        • Cost Reduction: Shipping firms can save a lot of money by using optimised routes, which can also contribute
+                        to lower fuel consumption, maintenance expenses, and greater operational efficiency.
+                        <div>
+                        </br>
+                            • Improved Trade: Both importers and exporters can gain from more streamlined and consistent trade flows
+                            made possible by efficient ship routing.
+
+                        </div>
+                        <div>
+                        </br>
+                            <h3>Environmental Impacts:</h3>
+• Better Air Quality: Lowering emissions can assist port cities and coastal areas have better air quality, which is
+good for everyone's health.
+                        
+                        <div>
+                            • Preservation of Marine Ecosystems: By avoiding delicate marine regions like coral reefs and habitats for
+endangered species, optimised routes can aid in the preservation of these environments.
+                        </div>
+                    </br>
+                        <h3>Fuel Efficiency Optimization:</h3>
+                        •The algorithm accounts for the fuel efficiency of each route, ensuring the most fuel-efficient path is chosen based on the fuel consumption per kilometer.
+                        <div>
+                        </br>
+                            •It allows users to input the total fuel available, and the algorithm ensures that the ship does not exceed the fuel limit on the journey.
+                        </div>
+                    </br>
+
+                    <h3>Arrival Time Estimate (ATE):</h3>
+                </br>
+                    • A key feature is the ability to calculate the Estimated Time of Arrival (ETA) based on the selected route.
+                </br>
+                    <div>• The time estimation accounts for fuel consumption, speed, and weather conditions, providing accurate predictions of arrival time for shipping operations.</div>
+                </br>
+                <h3>Fail-Safe Mechanism:</h3>
+            </br>
+                <div>• If the algorithm detects that the fuel or route conditions are insufficient for completing the journey, it returns appropriate failure messages, allowing for alternate planning or refueling.</div>
+            </br>
+               <h3>Scalable for Large Networks:</h3> 
+               •The algorithm is scalable and can handle larger networks of ports, distances, weather conditions, and other real-time data such as fuel stops and refueling stations.
+               </br>
+               <div>•This makes it applicable for large-scale marine logistics planning.</div>
+
+                        </div>
+
+                      
+                        </h1>
+                    <div class="d-flex mb-5 wow fadeInUp" data-wow-delay="0.3s">
+                       
+                        
+                    </div>
+                    <div class="d-flex mb-5 wow fadeIn" data-wow-delay="0.5s">
+                       
+                       
+                    </div>
+                    <div class="d-flex mb-0 wow fadeInUp" data-wow-delay="0.7s">
+                        
+                       
+                    </div>
+                </div>
+                <div class="col-lg-6 pe-lg-0 wow fadeInRight" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="https://blog.fleetx.io/content/images/2022/10/logistic-management-3.jpg" style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="container-xxl py-5">
+        <h6 class="text-secondary text-uppercase">Demo</h6>
+        <div class="routeTest">
+            <div class="containerMap">
+                <h1>Ship Route Planner</h1>
+            
+                <div class="input-group">
+                  <label for="locationA">Location A (Start):</label>
+                  <input type="text" id="locationA" placeholder="Enter starting location">
+                </div>
+            
+                <div class="input-group">
+                  <label for="locationB">Location B (Destination):</label>
+                  <input type="text" id="locationB" placeholder="Enter destination">
+                </div>
+            
+                <div class="input-group">
+                  <label for="fuel">Fuel Available (Liters):</label>
+                  <input type="number" id="fuel" placeholder="Enter fuel available">
+                </div>
+            
+                <div class="input-group">
+                  <label for="speed">Speed (Km/h):</label>
+                  <input type="number" id="speed" placeholder="Enter speed of ship">
+                </div>
+            
+                <div class="button-group">
+                  <button onclick="submitForm()">Plan Route</button>
+                </div>
+              </div>
+            
+
+        </div>
+        
+
+       
+    </div>
+    
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container py-5">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="text-secondary text-uppercase">Our Team</h6>
+                <h1 class="mb-5"> Team Members</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="" alt="">
+                        </div>
+                        <h5 class="mb-0">Sourav Vir Singh</h5>
+                        <p></p>
+                        <div class="btn-slide mt-1">
+                            <i class="fa fa-share"></i>
+                            <span>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="" alt="">
+                        </div>
+                        <h5 class="mb-0">Utkarsh Vyas</h5>
+                        <p></p>
+                        <div class="btn-slide mt-1">
+                            <i class="fa fa-share"></i>
+                            <span>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="" alt="">
+                        </div>
+                        <h5 class="mb-0">Ankit Tola</h5>
+                        <p></p>
+                        <div class="btn-slide mt-1">
+                            <i class="fa fa-share"></i>
+                            <span>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="team-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="" alt="">
+                        </div>
+                        <h5 class="mb-0">Arghya Ghosh</h5>
+                        <p></p>
+                        <div class="btn-slide mt-1">
+                            <i class="fa fa-share"></i>
+                            <span>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.9s"></div>
+                    <div class="team-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="" alt="">
+                        </div>
+                        <h5 class="mb-0">Anurag yadav</h5>
+                        <p></p>
+                        <div class="btn-slide mt-1">
+                            <i class="fa fa-share"></i>
+                            <span>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.9s"></div>
+                    <div class="team-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="" alt="">
+                        </div>
+                        <h5 class="mb-0">Medhangshi Das</h5>
+                        <p></p>
+                        <div class="btn-slide mt-1">
+                            <i class="fa fa-share"></i>
+                            <span>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
