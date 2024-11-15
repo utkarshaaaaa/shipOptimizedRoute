@@ -4,6 +4,7 @@ class Node {
     this.name = name;
     this.neighbors = [];
   }
+  //n
 
   addNeighbor(node, distance, fuelEfficiency, weather, speed) {
     this.neighbors.push({ node, distance, fuelEfficiency, weather, speed });
